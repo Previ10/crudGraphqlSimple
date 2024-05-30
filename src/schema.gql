@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type todoEntity {
+  id: Int!
+  description: String!
+  done: Boolean!
+}
+
+type Query {
+  todos: [todoEntity!]!
+  todo(id: Int!): todoEntity!
+
+  """Retorna un saludo"""
+  hello: String!
+  randomnumber(tos: Int!): Float!
+  randomnumberCeroTwo(to: Int!): Int!
+}
+
+type Mutation {
+  createTodo(CreateTodoInput: CreateTodoImput!): todoEntity!
+  updateTodo(UpdateTodoInput: UpdateTodoImput!): todoEntity!
+  deleteTodo: [todoEntity!]!
+}
+
+input CreateTodoImput {
+  """IMPUT CREATE"""
+  description: String!
+}
+
+input UpdateTodoImput {
+  id: Int!
+
+  """IMPUT CREATE"""
+  description: String!
+  done: Boolean
+}
