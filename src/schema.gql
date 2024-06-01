@@ -8,9 +8,19 @@ type todoEntity {
   done: Boolean!
 }
 
+type AgregationsType {
+  total: Int!
+  pending: Int!
+  completed: Int!
+}
+
 type Query {
-  todos: [todoEntity!]!
+  todos(status: Boolean): [todoEntity!]!
   todo(id: Int!): todoEntity!
+  TotalTodos: Int!
+  CompletedTodos: Int!
+  PendingTodos: Int!
+  agregations: AgregationsType!
 
   """Retorna un saludo"""
   hello: String!
@@ -21,7 +31,7 @@ type Query {
 type Mutation {
   createTodo(CreateTodoInput: CreateTodoImput!): todoEntity!
   updateTodo(UpdateTodoInput: UpdateTodoImput!): todoEntity!
-  deleteTodo: [todoEntity!]!
+  deleteTodo(id: Int!): Boolean!
 }
 
 input CreateTodoImput {
